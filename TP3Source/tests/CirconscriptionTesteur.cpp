@@ -3,6 +3,7 @@
 #include "Circonscription.h"
 #include "Candidat.h"
 #include "Electeur.h"
+#include "PersonneException.h"
 
 using namespace elections;
 
@@ -18,33 +19,11 @@ TEST(Circonscription, ConstructeurValide) {
 TEST(Circonscription, ConstructeurNomInvalide) {
     Candidat candidat("640 454 286", "Jean", "Louis", "235 Rue de l'Université, Québec, QC, G1V 0A7",
                       util::Date(1, 1, 1980), LIBERAL);
-    ASSERT_THROW(Circonscription circonscription("", candidat), std::invalid_argument);
+    ASSERT_THROW(Circonscription("", candidat), std::invalid_argument);
 }
 
-TEST(Circonscription, reqCirconscriptionFormate) {
-    Candidat candidat("640 454 286", "Jean", "Louis", "235 Rue de l'Université, Québec, QC, G1V 0A7",
-                      util::Date(1, 1, 1980), LIBERAL);
-    Circonscription circonscription("Circonscription-1", candidat);
 
-    Electeur electeur1("123 456 789", "Alice", "Smith", "456 Rue Centrale, Montréal, QC, H3H 1H1",
-                       util::Date(15, 3, 1990));
-    Electeur electeur2("987 654 321", "Bob", "Brown", "789 Rue de l'Église, Laval, QC, H7N 4G5",
-                       util::Date(20, 6, 1985));
-
-    circonscription.ajouterElecteur(electeur1);
-    circonscription.ajouterElecteur(electeur2);
-
-    std::ostringstream os;
-    os << "Circonscription : Circonscription-1\n";
-    os << "Député sortant :\n" << candidat.reqPersonneFormate() << "\n";
-    os << "Liste des inscrits :\n";
-    os << electeur1.reqPersonneFormate() << "\n";
-    os << electeur2.reqPersonneFormate() << "\n";
-
-    ASSERT_EQ(circonscription.reqCirconscriptionFormate(), os.str());
-}
-
-TEST(Circonscription, AjouterElecteur) {
+TEST(Circonscription, AjouterElecteurValide) {
     Candidat candidat("640 454 286", "Jean", "Louis", "235 Rue de l'Université, Québec, QC, G1V 0A7",
                       util::Date(1, 1, 1980), LIBERAL);
     Circonscription circonscription("Circonscription-1", candidat);
@@ -52,7 +31,7 @@ TEST(Circonscription, AjouterElecteur) {
     Electeur electeur("123 456 789", "Alice", "Smith", "456 Rue Centrale, Montréal, QC, H3H 1H1",
                       util::Date(15, 3, 1990));
 
-    circonscription.ajouterElecteur(electeur);
+    circonscription.inscrire(electeur);
 
     std::ostringstream os;
     os << "Circonscription : Circonscription-1\n";
@@ -63,14 +42,53 @@ TEST(Circonscription, AjouterElecteur) {
     ASSERT_EQ(circonscription.reqCirconscriptionFormate(), os.str());
 }
 
-TEST(Circonscription, Clone) {
+TEST(Circonscription, AjouterElecteurDejaPresent) {
     Candidat candidat("640 454 286", "Jean", "Louis", "235 Rue de l'Université, Québec, QC, G1V 0A7",
                       util::Date(1, 1, 1980), LIBERAL);
     Circonscription circonscription("Circonscription-1", candidat);
 
     Electeur electeur("123 456 789", "Alice", "Smith", "456 Rue Centrale, Montréal, QC, H3H 1H1",
                       util::Date(15, 3, 1990));
-    circonscription.ajouterElecteur(electeur);
+
+    circonscription.inscrire(electeur);
+    ASSERT_THROW(circonscription.inscrire(electeur), PersonneDejaPresenteException);
+}
+
+TEST(Circonscription, DesinscrireElecteurValide) {
+    Candidat candidat("640 454 286", "Jean", "Louis", "235 Rue de l'Université, Québec, QC, G1V 0A7",
+                      util::Date(1, 1, 1980), LIBERAL);
+    Circonscription circonscription("Circonscription-1", candidat);
+
+    Electeur electeur("123 456 789", "Alice", "Smith", "456 Rue Centrale, Montréal, QC, H3H 1H1",
+                      util::Date(15, 3, 1990));
+
+    circonscription.inscrire(electeur);
+    circonscription.desinscrire("123 456 789");
+
+    std::ostringstream os;
+    os << "Circonscription : Circonscription-1\n";
+    os << "Député sortant :\n" << candidat.reqPersonneFormate() << "\n";
+    os << "Liste des inscrits :\n";
+
+    ASSERT_EQ(circonscription.reqCirconscriptionFormate(), os.str());
+}
+
+TEST(Circonscription, DesinscrireElecteurInexistant) {
+    Candidat candidat("640 454 286", "Jean", "Louis", "235 Rue de l'Université, Québec, QC, G1V 0A7",
+                      util::Date(1, 1, 1980), LIBERAL);
+    Circonscription circonscription("Circonscription-1", candidat);
+
+    ASSERT_THROW(circonscription.desinscrire("987 654 321"), PersonneAbsenteException);
+}
+
+TEST(Circonscription, CloneCirconscription) {
+    Candidat candidat("640 454 286", "Jean", "Louis", "235 Rue de l'Université, Québec, QC, G1V 0A7",
+                      util::Date(1, 1, 1980), LIBERAL);
+    Circonscription circonscription("Circonscription-1", candidat);
+
+    Electeur electeur("123 456 789", "Alice", "Smith", "456 Rue Centrale, Montréal, QC, H3H 1H1",
+                      util::Date(15, 3, 1990));
+    circonscription.inscrire(electeur);
 
     std::unique_ptr<Circonscription> circonscriptionClone = circonscription.clone();
 
@@ -78,5 +96,6 @@ TEST(Circonscription, Clone) {
     ASSERT_EQ(circonscriptionClone->reqDeputeSortant().reqNas(), circonscription.reqDeputeSortant().reqNas());
     ASSERT_EQ(circonscriptionClone->reqCirconscriptionFormate(), circonscription.reqCirconscriptionFormate());
 }
+
 
 

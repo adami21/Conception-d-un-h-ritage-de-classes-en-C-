@@ -10,6 +10,7 @@
       <itemPath>Date.h</itemPath>
       <itemPath>Electeur.h</itemPath>
       <itemPath>Personne.h</itemPath>
+      <itemPath>PersonneException.h</itemPath>
       <itemPath>validationFormat.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -25,6 +26,7 @@
       <itemPath>Date.cpp</itemPath>
       <itemPath>Electeur.cpp</itemPath>
       <itemPath>Personne.cpp</itemPath>
+      <itemPath>PersonneException.cpp</itemPath>
       <itemPath>validationFormat.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -98,6 +100,10 @@
       <item path="Personne.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Personne.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PersonneException.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PersonneException.h" ex="false" tool="3" flavor2="0">
       </item>
       <folder path="TestFiles">
         <ccTool>
@@ -231,6 +237,10 @@
       <item path="Personne.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Personne.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PersonneException.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PersonneException.h" ex="false" tool="3" flavor2="0">
       </item>
       <folder path="TestFiles/f1">
         <cTool>

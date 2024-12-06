@@ -41,6 +41,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Date.o \
 	${OBJECTDIR}/Electeur.o \
 	${OBJECTDIR}/Personne.o \
+	${OBJECTDIR}/PersonneException.o \
 	${OBJECTDIR}/validationFormat.o
 
 # Test Directory
@@ -78,13 +79,13 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libsources.a
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libtp3source.a
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libsources.a: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libtp3source.a: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libsources.a
-	${AR} -rv ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libsources.a ${OBJECTFILES} 
-	$(RANLIB) ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libsources.a
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libtp3source.a
+	${AR} -rv ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libtp3source.a ${OBJECTFILES} 
+	$(RANLIB) ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libtp3source.a
 
 ${OBJECTDIR}/Candidat.o: Candidat.cpp
 	${MKDIR} -p ${OBJECTDIR}
@@ -115,6 +116,11 @@ ${OBJECTDIR}/Personne.o: Personne.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Personne.o Personne.cpp
+
+${OBJECTDIR}/PersonneException.o: PersonneException.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PersonneException.o PersonneException.cpp
 
 ${OBJECTDIR}/validationFormat.o: validationFormat.cpp
 	${MKDIR} -p ${OBJECTDIR}
@@ -245,6 +251,19 @@ ${OBJECTDIR}/Personne_nomain.o: ${OBJECTDIR}/Personne.o Personne.cpp
 	    $(COMPILE.cc) -O2 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Personne_nomain.o Personne.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/Personne.o ${OBJECTDIR}/Personne_nomain.o;\
+	fi
+
+${OBJECTDIR}/PersonneException_nomain.o: ${OBJECTDIR}/PersonneException.o PersonneException.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/PersonneException.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} "$@.d";\
+	    $(COMPILE.cc) -O2 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PersonneException_nomain.o PersonneException.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/PersonneException.o ${OBJECTDIR}/PersonneException_nomain.o;\
 	fi
 
 ${OBJECTDIR}/validationFormat_nomain.o: ${OBJECTDIR}/validationFormat.o validationFormat.cpp 

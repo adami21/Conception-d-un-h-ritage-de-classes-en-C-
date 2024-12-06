@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux
-CND_ARTIFACT_NAME_Debug=libsources.a
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/libsources.a
+CND_ARTIFACT_NAME_Debug=libtp3source.a
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/libtp3source.a
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux/package
-CND_PACKAGE_NAME_Debug=Sources.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/Sources.tar
+CND_PACKAGE_NAME_Debug=TP3Source.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/TP3Source.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux
-CND_ARTIFACT_NAME_Release=libsources.a
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/libsources.a
+CND_ARTIFACT_NAME_Release=libtp3source.a
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/libtp3source.a
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux/package
-CND_PACKAGE_NAME_Release=Sources.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/Sources.tar
+CND_PACKAGE_NAME_Release=TP3Source.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/TP3Source.tar
 #
 # include compiler specific variables
 #

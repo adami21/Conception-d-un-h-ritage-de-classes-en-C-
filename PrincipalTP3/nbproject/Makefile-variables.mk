@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux
-CND_ARTIFACT_NAME_Debug=principal
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/principal
+CND_ARTIFACT_NAME_Debug=principaltp3
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/principaltp3
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux/package
-CND_PACKAGE_NAME_Debug=principal.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/principal.tar
+CND_PACKAGE_NAME_Debug=principaltp3.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/principaltp3.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux
-CND_ARTIFACT_NAME_Release=principal
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/principal
+CND_ARTIFACT_NAME_Release=principaltp3
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/principaltp3
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux/package
-CND_PACKAGE_NAME_Release=principal.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/principal.tar
+CND_PACKAGE_NAME_Release=principaltp3.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/principaltp3.tar
 #
 # include compiler specific variables
 #
