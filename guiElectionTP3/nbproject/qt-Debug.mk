@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = guiElectionTP31.0.0
-DISTDIR = /home/etudiant/Bureau/tp3integration-equipe33/guiElectionTP3/build/Debug/GNU-Linux/guiElectionTP31.0.0
+DISTDIR = /home/etudiant/Bureau/TP3/tp3integration-equipe33/guiElectionTP3/build/Debug/GNU-Linux/guiElectionTP31.0.0
 LINK          = g++
 LFLAGS        = 
 LIBS          = $(SUBLIBS) ../TP3Source/dist/Debug/GNU-Linux/libtp3source.a /usr/lib/x86_64-linux-gnu/libQt5Widgets.so /usr/lib/x86_64-linux-gnu/libQt5Gui.so /usr/lib/x86_64-linux-gnu/libQt5Core.so -lGL -lpthread   
@@ -118,6 +118,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		nbproject/.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -210,6 +211,7 @@ qttmp-Debug.mk: nbproject/qt-Debug.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/lin
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -288,6 +290,7 @@ qttmp-Debug.mk: nbproject/qt-Debug.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/lin
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
@@ -364,7 +367,7 @@ moc_FormElecteur.cpp: FormElecteur.h \
 		ui_FormElecteur.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/etudiant/Bureau/tp3integration-equipe33/guiElectionTP3/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/etudiant/Bureau/tp3integration-equipe33/guiElectionTP3/nbproject -I/home/etudiant/Bureau/tp3integration-equipe33/guiElectionTP3/TP3Source -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include FormElecteur.h -o moc_FormElecteur.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/etudiant/Bureau/TP3/tp3integration-equipe33/guiElectionTP3/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/etudiant/Bureau/TP3/tp3integration-equipe33/guiElectionTP3/nbproject -I/home/etudiant/Bureau/TP3/tp3integration-equipe33/guiElectionTP3/TP3Source -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include FormElecteur.h -o moc_FormElecteur.cpp
 
 moc_FormPrincipal.cpp: FormPrincipal.h \
 		../TP3Source/Circonscription.h \
@@ -376,7 +379,7 @@ moc_FormPrincipal.cpp: FormPrincipal.h \
 		ui_FormPrincipal.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/etudiant/Bureau/tp3integration-equipe33/guiElectionTP3/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/etudiant/Bureau/tp3integration-equipe33/guiElectionTP3/nbproject -I/home/etudiant/Bureau/tp3integration-equipe33/guiElectionTP3/TP3Source -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include FormPrincipal.h -o moc_FormPrincipal.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/etudiant/Bureau/TP3/tp3integration-equipe33/guiElectionTP3/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/etudiant/Bureau/TP3/tp3integration-equipe33/guiElectionTP3/nbproject -I/home/etudiant/Bureau/TP3/tp3integration-equipe33/guiElectionTP3/TP3Source -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include FormPrincipal.h -o moc_FormPrincipal.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
