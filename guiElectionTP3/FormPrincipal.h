@@ -1,22 +1,25 @@
+#ifndef FORMPRINCIPAL_H
+#define FORMPRINCIPAL_H
 
-#ifndef _FORMPRINCIPAL_H
-#define _FORMPRINCIPAL_H
-
-#include "Circonscription.h"
+#include <QMainWindow>
 #include "ui_FormPrincipal.h"
+#include "Circonscription.h"
 
 class FormPrincipal : public QMainWindow
 {
-  Q_OBJECT
+    Q_OBJECT
+
 public:
-  FormPrincipal ();
-  virtual ~FormPrincipal ();
-  
+    FormPrincipal();
+    ~FormPrincipal();
+
 private slots:
-  void slotOuvrirElecteur();
+    void slotOuvrirElecteur();
+
 private:
-  Ui::FormPrincipal widget;
-  elections::Circonscription m_circonscription;
+    Ui::FormPrincipal widget;
+    elections::Circonscription m_circonscription;
 };
 
-#endif /* _FORMPRINCIPAL_H */
+#endif // FORMPRINCIPAL_H
+

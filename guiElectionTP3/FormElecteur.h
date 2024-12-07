@@ -1,28 +1,25 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/qtFiles/form.h to edit this template
- */
-
-/* 
- * File:   FormElecteur.h
- * Author: etudiant
- *
- * Created on 9 décembre 2024, 13 h 29
- */
-
-#ifndef _FORMELECTEUR_H
-#define _FORMELECTEUR_H
+#ifndef FORMELECTEUR_H
+#define FORMELECTEUR_H
 
 #include "ui_FormElecteur.h"
+#include "Circonscription.h"
+#include <QDialog>
 
 class FormElecteur : public QDialog
 {
-  Q_OBJECT
+    Q_OBJECT
+
 public:
-  FormElecteur ();
-  virtual ~FormElecteur ();
+    explicit FormElecteur(elections::Circonscription& circonscription, QWidget* parent = nullptr);
+    ~FormElecteur();
+
+private slots:
+    void slotButtonOk();
+    void slotButtonCancel();
+
 private:
-  Ui::FormElecteur widget;
+    Ui::FormElecteur* widget;
+    elections::Circonscription& m_circonscription;
 };
 
-#endif /* _FORMELECTEUR_H */
+#endif // FORMELECTEUR_H

@@ -79,7 +79,8 @@ public:
 
         retranslateUi(FormPrincipal);
         QObject::connect(actionQuitter, SIGNAL(triggered()), FormPrincipal, SLOT(close()));
-        QObject::connect(actionElecteur, SIGNAL(triggered()), FormPrincipal, SLOT(slotOuvrirElecteur()));
+        QObject::connect(actionElecteur_2, SIGNAL(triggered()), FormPrincipal, SLOT(slotOuvrirElecteur()));
+        QObject::connect(actionCandidat, SIGNAL(triggered()), FormPrincipal, SLOT(slotOuvrirCandidat()));
 
         QMetaObject::connectSlotsByName(FormPrincipal);
     } // setupUi

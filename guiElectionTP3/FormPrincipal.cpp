@@ -1,29 +1,32 @@
-
 #include "FormPrincipal.h"
 #include "FormElecteur.h"
-#include "Candidat.h"
-#include "Electeur.h"
-#include "Date.h"
 
-FormPrincipal::FormPrincipal (): m_circonscription("Circonscription n°1",
-                                                   elections::Candidat ("nasCandidat", "prenomCandidat", "nomCandidat", "adresseCandidat", util::Date(1, 1, 2003), elections::INDEPENDANT))
+FormPrincipal::FormPrincipal() : m_circonscription("Circonscription n°1",
+                                                   elections::Candidat("nasCandidat", "prenomCandidat", "nomCandidat", "adresseCandidat", util::Date(1, 1, 2003), elections::INDEPENDANT))
 {
-  widget.setupUi (this);
-  //Les quatres lignes suivantes soivent partir apres
-  elections::Candidat candidat("nasCandidat", "prenomCandidat", "nomCandidat", "adresseCandidat", util::Date(1, 1, 2003), elections::INDEPENDANT);
-  elections::Electeur electeur("nasElecteur", "prenomElecteur", "nomElecteur", "adresseElecteur", util::Date(1, 1, 2003));
-  
-  m_circonscription.inscrire(candidat);
-  m_circonscription.inscrire(electeur);
-  
-  widget.textEditPrincipal->setPlainText (m_circonscription.reqCirconscriptionFormate().c_str());
+    widget.setupUi(this);
+
+    // Connecter les actions
+    connect(widget.actionInscrireElecteur, &QAction::triggered, this, &FormPrincipal::slotOuvrirElecteur);
+    connect(widget.actionInscrireCandidat, &QAction::triggered, this, &FormPrincipal::slotOuvrirCandidat);
+
+    // Initialiser la zone de texte avec les données de la circonscription
+    widget.textEditPrincipal->setPlainText(m_circonscription.reqCirconscriptionFormate().c_str());
 }
 
-FormPrincipal::~FormPrincipal () { }
+FormPrincipal::~FormPrincipal() {}
 
-void FormPrincipal::slotOuvrirElecteur(){
-  
-  FormElecteur formElecteur;
-  formElecteur.exec();
+void FormPrincipal::slotOuvrirElecteur() {
+    FormElecteur formElecteur(m_circonscription, this);
+    if (formElecteur.exec() == QDialog::Accepted) {
+        // Mettre à jour l'affichage après l'inscription
+        widget.textEditPrincipal->setPlainText(m_circonscription.reqCirconscriptionFormate().c_str());
+    }
 }
+
+void FormPrincipal::slotOuvrirCandidat() {
+    // Implémentez cette méthode si nécessaire
+}
+
+
 

@@ -54,6 +54,7 @@ void Circonscription::inscrire(const Personne& p_nouvelInscrit) {
     verifieInvariant();
 }
 
+
 void Circonscription::desinscrire(const std::string& p_nas) {
     auto it = std::find_if(m_vInscrits.begin(), m_vInscrits.end(),
         [&p_nas](const std::unique_ptr<Personne>& personne) {

@@ -81,12 +81,17 @@ public:
      * \return Un pointeur unique vers une copie de l'objet.
      */
     std::unique_ptr<Circonscription> clone() const;
+    
+   
+    
+    
 
 private:
     std::string m_nomCirconscription; ///< Nom de la circonscription.
     Candidat m_deputeSortant;         ///< Député sortant de la circonscription.
     std::vector<std::unique_ptr<Personne>> m_vInscrits; ///< Liste des personnes inscrites.
-
+    
+    
     /**
      * \brief Vérifie si une personne est déjà inscrite.
      * 
@@ -94,7 +99,8 @@ private:
      * \return true si la personne est déjà inscrite, sinon false.
      */
     bool personneEstDejaPresente(const std::string& p_nas) const;
-
+    
+    
     /**
      * \brief Vérifie les invariants de la classe.
      * 
