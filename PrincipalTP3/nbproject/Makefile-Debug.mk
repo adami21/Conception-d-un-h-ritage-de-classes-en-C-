@@ -52,13 +52,13 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=../Sources/dist/Debug/GNU-Linux/libsources.a
+LDLIBSOPTIONS=../TP3Source/dist/Debug/GNU-Linux/libtp3source.a
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
 	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/principaltp3
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/principaltp3: ../Sources/dist/Debug/GNU-Linux/libsources.a
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/principaltp3: ../TP3Source/dist/Debug/GNU-Linux/libtp3source.a
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/principaltp3: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
@@ -67,11 +67,11 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/principaltp3: ${OBJECTFILES}
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I../Sources -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -g -I../TP3Source -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
 
 # Subprojects
 .build-subprojects:
-	cd ../Sources && ${MAKE}  -f Makefile CONF=Debug
+	cd ../TP3Source && ${MAKE}  -f Makefile CONF=Debug
 
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
@@ -79,7 +79,7 @@ ${OBJECTDIR}/main.o: main.cpp
 
 # Subprojects
 .clean-subprojects:
-	cd ../Sources && ${MAKE}  -f Makefile CONF=Debug clean
+	cd ../TP3Source && ${MAKE}  -f Makefile CONF=Debug clean
 
 # Enable dependency checking
 .dep.inc: .depcheck-impl

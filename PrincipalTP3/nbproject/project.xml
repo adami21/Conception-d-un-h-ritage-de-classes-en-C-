@@ -9,7 +9,7 @@
             <header-extensions/>
             <sourceEncoding>UTF-8</sourceEncoding>
             <make-dep-projects>
-                <make-dep-project>../Sources</make-dep-project>
+                <make-dep-project>../TP3Source</make-dep-project>
             </make-dep-projects>
             <sourceRootList/>
             <confList>
