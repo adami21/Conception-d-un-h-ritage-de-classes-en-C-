@@ -10,7 +10,9 @@
  * Created on 6 décembre 2024, 08 h 44
  */
 
+#include "FormPrincipal.h"
 #include <QApplication>
+#include <qt5/QtWidgets/qwidget.h>
 
 int
 main (int argc, char *argv[])
@@ -21,6 +23,8 @@ main (int argc, char *argv[])
   QApplication app (argc, argv);
 
   // create and show your widgets here
+  FormPrincipal formPrincipal;
+  formPrincipal.show();
 
   return app.exec ();
 }
