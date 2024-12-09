@@ -52,10 +52,14 @@ OBJECTS_DIR   = build/Debug/GNU-Linux/
 
 ####### Files
 
-SOURCES       = FormPrincipal.cpp \
-		main.cpp moc_FormPrincipal.cpp
-OBJECTS       = build/Debug/GNU-Linux/FormPrincipal.o \
+SOURCES       = FormElecteur.cpp \
+		FormPrincipal.cpp \
+		main.cpp moc_FormElecteur.cpp \
+		moc_FormPrincipal.cpp
+OBJECTS       = build/Debug/GNU-Linux/FormElecteur.o \
+		build/Debug/GNU-Linux/FormPrincipal.o \
 		build/Debug/GNU-Linux/main.o \
+		build/Debug/GNU-Linux/moc_FormElecteur.o \
 		build/Debug/GNU-Linux/moc_FormPrincipal.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -133,7 +137,9 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		nbproject/nbproject/qt-Debug.pro FormPrincipal.h FormPrincipal.cpp \
+		nbproject/nbproject/qt-Debug.pro FormElecteur.h \
+		FormPrincipal.h FormElecteur.cpp \
+		FormPrincipal.cpp \
 		main.cpp
 QMAKE_TARGET  = guiElectionTP3
 DESTDIR       = dist/Debug/GNU-Linux/
@@ -143,7 +149,7 @@ TARGET        = dist/Debug/GNU-Linux/guiElectionTP3
 first: all
 ####### Build rules
 
-dist/Debug/GNU-Linux/guiElectionTP3: ui_FormPrincipal.h $(OBJECTS)  
+dist/Debug/GNU-Linux/guiElectionTP3: ui_FormElecteur.h ui_FormPrincipal.h $(OBJECTS)  
 	@test -d dist/Debug/GNU-Linux/ || mkdir -p dist/Debug/GNU-Linux/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -317,9 +323,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents FormPrincipal.h $(DISTDIR)/
-	$(COPY_FILE) --parents FormPrincipal.cpp main.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents FormPrincipal.ui $(DISTDIR)/
+	$(COPY_FILE) --parents FormElecteur.h FormPrincipal.h $(DISTDIR)/
+	$(COPY_FILE) --parents FormElecteur.cpp FormPrincipal.cpp main.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents FormElecteur.ui FormPrincipal.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -351,9 +357,15 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -Wall -Wextra -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_FormPrincipal.cpp
+compiler_moc_header_make_all: moc_FormElecteur.cpp moc_FormPrincipal.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_FormPrincipal.cpp
+	-$(DEL_FILE) moc_FormElecteur.cpp moc_FormPrincipal.cpp
+moc_FormElecteur.cpp: FormElecteur.h \
+		ui_FormElecteur.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/etudiant/Bureau/tp3integration-equipe33/guiElectionTP3/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/etudiant/Bureau/tp3integration-equipe33/guiElectionTP3/nbproject -I/home/etudiant/Bureau/tp3integration-equipe33/guiElectionTP3/TP3Source -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include FormElecteur.h -o moc_FormElecteur.cpp
+
 moc_FormPrincipal.cpp: FormPrincipal.h \
 		../TP3Source/Circonscription.h \
 		../TP3Source/Candidat.h \
@@ -370,9 +382,13 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_FormPrincipal.h
+compiler_uic_make_all: ui_FormElecteur.h ui_FormPrincipal.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_FormPrincipal.h
+	-$(DEL_FILE) ui_FormElecteur.h ui_FormPrincipal.h
+ui_FormElecteur.h: FormElecteur.ui \
+		/usr/lib/qt5/bin/uic
+	/usr/lib/qt5/bin/uic FormElecteur.ui -o ui_FormElecteur.h
+
 ui_FormPrincipal.h: FormPrincipal.ui \
 		/usr/lib/qt5/bin/uic
 	/usr/lib/qt5/bin/uic FormPrincipal.ui -o ui_FormPrincipal.h
@@ -387,6 +403,10 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 ####### Compile
 
+build/Debug/GNU-Linux/FormElecteur.o: FormElecteur.cpp FormElecteur.h \
+		ui_FormElecteur.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/Debug/GNU-Linux/FormElecteur.o FormElecteur.cpp
+
 build/Debug/GNU-Linux/FormPrincipal.o: FormPrincipal.cpp FormPrincipal.h \
 		../TP3Source/Circonscription.h \
 		../TP3Source/Candidat.h \
@@ -394,7 +414,9 @@ build/Debug/GNU-Linux/FormPrincipal.o: FormPrincipal.cpp FormPrincipal.h \
 		../TP3Source/Date.h \
 		../TP3Source/Electeur.h \
 		../TP3Source/PersonneException.h \
-		ui_FormPrincipal.h
+		ui_FormPrincipal.h \
+		FormElecteur.h \
+		ui_FormElecteur.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/Debug/GNU-Linux/FormPrincipal.o FormPrincipal.cpp
 
 build/Debug/GNU-Linux/main.o: main.cpp FormPrincipal.h \
@@ -406,6 +428,9 @@ build/Debug/GNU-Linux/main.o: main.cpp FormPrincipal.h \
 		../TP3Source/PersonneException.h \
 		ui_FormPrincipal.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/Debug/GNU-Linux/main.o main.cpp
+
+build/Debug/GNU-Linux/moc_FormElecteur.o: moc_FormElecteur.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/Debug/GNU-Linux/moc_FormElecteur.o moc_FormElecteur.cpp
 
 build/Debug/GNU-Linux/moc_FormPrincipal.o: moc_FormPrincipal.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/Debug/GNU-Linux/moc_FormPrincipal.o moc_FormPrincipal.cpp

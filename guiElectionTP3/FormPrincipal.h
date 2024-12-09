@@ -11,9 +11,12 @@ class FormPrincipal : public QMainWindow
 public:
   FormPrincipal ();
   virtual ~FormPrincipal ();
+  
+private slots:
+  void slotOuvrirElecteur();
 private:
   Ui::FormPrincipal widget;
-  Circonscription m_circonscription;
+  elections::Circonscription m_circonscription;
 };
 
 #endif /* _FORMPRINCIPAL_H */

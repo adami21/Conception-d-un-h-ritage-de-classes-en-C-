@@ -79,6 +79,7 @@ public:
 
         retranslateUi(FormPrincipal);
         QObject::connect(actionQuitter, SIGNAL(triggered()), FormPrincipal, SLOT(close()));
+        QObject::connect(actionElecteur, SIGNAL(triggered()), FormPrincipal, SLOT(slotOuvrirElecteur()));
 
         QMetaObject::connectSlotsByName(FormPrincipal);
     } // setupUi
@@ -95,7 +96,7 @@ public:
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Ubuntu'; font-size:11pt; font-weight:24; font-style:italic;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">aaa</p></body></html>", nullptr));
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
         menuMenu->setTitle(QCoreApplication::translate("FormPrincipal", "Menu", nullptr));
         menuAjouter->setTitle(QCoreApplication::translate("FormPrincipal", "Ajouter", nullptr));
     } // retranslateUi

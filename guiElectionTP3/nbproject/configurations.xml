@@ -4,16 +4,19 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>FormElecteur.h</itemPath>
       <itemPath>FormPrincipal.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
                    projectFiles="true">
+      <itemPath>FormElecteur.ui</itemPath>
       <itemPath>FormPrincipal.ui</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>FormElecteur.cpp</itemPath>
       <itemPath>FormPrincipal.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
@@ -63,6 +66,12 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
+      <item path="FormElecteur.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="FormElecteur.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="FormElecteur.ui" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="FormPrincipal.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="FormPrincipal.h" ex="false" tool="3" flavor2="0">
@@ -96,6 +105,12 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="FormElecteur.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="FormElecteur.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="FormElecteur.ui" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="FormPrincipal.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="FormPrincipal.h" ex="false" tool="3" flavor2="0">
